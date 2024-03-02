@@ -79,7 +79,7 @@
                     if (budget >= 18000) {
                         const additionalGuests = Math.floor((budget - 18000) / 350);
                         const totalGuests = 50 + additionalGuests;
-                        guestMessage.innerHTML = `Your budget is applicable for ${totalGuests} guests. <br> Additional guests will be charged 350 pesos per head, <br>Prices will be subject to change.`;
+                        guestMessage.innerHTML =  `Additional guests will be charged 350 pesos per head, <br>Prices will be subject to change.`;
                         guestMessageContainer.style.display = 'block';
                     } else {
                         guestMessage.innerHTML = `Additional guests will be charged 350 pesos per head, <br>Prices will be subject to change.`;

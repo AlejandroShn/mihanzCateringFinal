@@ -23,17 +23,17 @@ class Menu extends Model
     }
 
     public function reservations()
-    {
-        return $this->hasMany(Reservation::class, 'pork_menu_id')
-            ->orWhere('beef_menu_id', $this->id)
-            ->orWhere('pasta_menu_id', $this->id)
-            ->orWhere('chicken_menu_id', $this->id)
-            ->orWhere('veggies_menu_id', $this->id)
-            ->orWhere('fish_menu_id', $this->id)
-            ->orWhere('seafood_menu_id', $this->id)
-            ->orWhere('dessert_menu_id', $this->id)
-            ->orWhere('drink_menu_id', $this->id);
-    }
+{
+    return $this->hasMany(Reservation::class, 'pork_menu_id')
+        ->orWhere('beef_menu_id', $this->id)
+        ->orWhere('pasta_menu_id', $this->id)
+        ->orWhere('chicken_menu_id', $this->id)
+        ->orWhere('veggies_menu_id', $this->id)
+        ->orWhere('fish_menu_id', $this->id)
+        ->orWhere('seafood_menu_id', $this->id)
+        ->orWhere('dessert_menu_id', $this->id)
+        ->orWhere('drink_menu_id', $this->id);
+}
     
 
     public function getCategoryNameAttribute()

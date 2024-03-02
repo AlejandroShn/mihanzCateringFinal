@@ -13,8 +13,12 @@
                         <th scope="col" colspan="2"><img src="{{ asset('images/user/' . $user->profile_picture) }}" alt="" class=" img-thumbnail icon-container"></th>
                       </tr> --}}
                         <tr>
-                          <th scope="row">Name:</th>
-                          <td>{{ $user->name }}</td>
+                          <th scope="row">First Name:</th>
+                          <td>{{ $user->first_name }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Last Name:</th>
+                          <td>{{ $user->last_name }}</td>
                         </tr>
                         <tr>
                           <th scope="row">Address:</th>
@@ -62,8 +66,12 @@
                               </td>
                             </tr>
                               <tr>
-                                <th scope="col">Name:</th>
-                                <td ><input type="text" name="name" value="{{ $user->name }}" class="form-control"></td>
+                                <th scope="col">First Name:</th>
+                                <td ><input type="text" name="first_name" value="{{ $user->first_name }}" class="form-control"></td>
+                              </tr>
+                              <tr>
+                                <th scope="col">Last Name:</th>
+                                <td ><input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control"></td>
                               </tr>
                               <tr>
                                 <th scope="col">Address:</th>

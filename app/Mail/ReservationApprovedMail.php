@@ -28,7 +28,7 @@ class ReservationApprovedMail extends Mailable
 
     public function build()
     {
-        $userName = $this->user->name;
+        $userName = $this->user->first_name;
 
         // Generate PDF
         $pdf = $this->generatePDF($this->reservation->id);

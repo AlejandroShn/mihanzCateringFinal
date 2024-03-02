@@ -29,7 +29,7 @@
                 <td>{{$reservation->id}}</td>
             </tr>
                 <th scope="col">Name:</th>
-                <td>{{$reservation->user->name}}</td>
+                <td>{{ $reservation->user->first_name . ' ' . $reservation->user->last_name }}</td>
             <tr>
 
             </tr>

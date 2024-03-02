@@ -15,8 +15,13 @@
                       <td>{{$user->id}}</td>
                     </tr>
                     <tr>
-                      <th scope="col">Name</th>
-                      <td>{{$user->name}}</td>
+                      <th scope="col">First Name</th>
+                      <td>{{$user->first_name}}</td>
+
+                    </tr>
+                    <tr>
+                      <th scope="col">Last Name</th>
+                      <td>{{$user->last_name}}</td>
 
                     </tr>
                       

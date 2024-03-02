@@ -34,11 +34,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <script>
-                                $(document).ready(function () {
-                                    $('#Addmenu').modal('show');
-                                });
-                            </script>
+                        
                     @endif
                             <tbody>
                                 <tr>

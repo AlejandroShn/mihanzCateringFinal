@@ -14,7 +14,7 @@
             <td class="fw-bolder"> Name:</td>
 
             <td>
-            {{$reservations->user->name}}
+            {{ $reservations->user->first_name . ' ' . $reservations->user->last_name }}
             </td>
 
             <td class="fw-bolder"> Email:</td>

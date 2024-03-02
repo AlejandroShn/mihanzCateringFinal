@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Admin',
+                'first_name' => 'Admin',
+                'last_name' => 'admin',
                 'address' => 'Manila',
                 'contact_number' => '1234567890',
                 'email' => 'admin@gmail.com',
@@ -25,7 +26,8 @@ class UserSeeder extends Seeder
                 'role_id' => 1,
             ],
             [
-                'name' => 'Cedric',
+                'first_name' => 'Cedric',
+                'last_name' => 'Iglesias',
                 'address' => 'Bulacan',
                 'contact_number' => '9876543210',
                 'email' => 'cedric@gmail.com',
@@ -33,7 +35,8 @@ class UserSeeder extends Seeder
                 'role_id' => 2, 
             ],
             [
-                'name' => 'Shean',
+                'first_name' => 'Shean',
+                'last_name' => 'Alejandro',
                 'address' => 'Bulacan',
                 'contact_number' => '5555555555',
                 'email' => 'shean@gmail.com',
@@ -41,7 +44,8 @@ class UserSeeder extends Seeder
                 'role_id' => 2, 
             ],
             [
-                'name' => 'Kim',
+                'first_name' => 'Kim',
+                'last_name' => 'admin',
                 'address' => 'Pasig',
                 'contact_number' => '99999999',
                 'email' => 'kim@gmail.com',

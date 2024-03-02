@@ -35,7 +35,7 @@ class AdminController extends Controller
                 'title' => $reservation->celebrant_name,
                 'start' => Carbon::parse($reservation->event_date . ' ' . $reservation->event_time)->format('Y-m-d H:i:s'),
 
-                'name' => $reservation->user->name,
+                'name' => $reservation->user->first_name . ' ' . $reservation->user->last_name,
                 'email' => $reservation->user->email,
                 'contact_number' => $reservation->user->contact_number,
                 'event_date' => Carbon::parse($reservation->event_date)->format('Y-m-d'),
@@ -89,7 +89,7 @@ class AdminController extends Controller
                 'title' => $reservation->celebrant_name,
                 'start' => Carbon::parse($reservation->event_date . ' ' . $reservation->event_time)->format('Y-m-d H:i:s'),
 
-                'name' => $reservation->user->name,
+                'name' => $reservation->user->first_name . ' ' . $reservation->user->last_name,
                 'email' => $reservation->user->email,
                 'event_date' => Carbon::parse($reservation->event_date)->format('Y-m-d'),
                 'event_time' => Carbon::parse($reservation->event_time)->format('H:i:s'),

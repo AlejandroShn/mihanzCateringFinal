@@ -82,7 +82,7 @@ class UserController extends Controller
                 'title' => $reservation->celebrant_name,
                 'start' => Carbon::parse($reservation->event_date . ' ' . $reservation->event_time)->format('Y-m-d H:i:s'),
 
-                'name' => $reservation->user->name,
+                'name' => $reservation->user->first_name . ' ' . $reservation->user->last_name,
                 'email' => $reservation->user->email,
                 'event_date' => Carbon::parse($reservation->event_date)->format('Y-m-d'),
                 'event_time' => Carbon::parse($reservation->event_time)->format('H:i:s'),
@@ -134,7 +134,7 @@ class UserController extends Controller
                 'title' => $reservation->celebrant_name,
                 'start' => Carbon::parse($reservation->event_date . ' ' . $reservation->event_time)->format('Y-m-d H:i:s'),
 
-                'name' => $reservation->user->name,
+                'name' => $reservation->user->first_name . ' ' . $reservation->user->last_name,
                 'email' => $reservation->user->email,
                 'event_date' => Carbon::parse($reservation->event_date)->format('Y-m-d'),
                 'event_time' => Carbon::parse($reservation->event_time)->format('H:i:s'),
@@ -184,7 +184,7 @@ class UserController extends Controller
     $request->validate($rules);
 
     // Update user data
-    $user->name = $request->input('name');
+    $user->first_name = $request->input('first_name');
     $user->address = $request->input('address');
     $user->contact_number = $request->input('contact_number');
     $user->email = $request->input('email');

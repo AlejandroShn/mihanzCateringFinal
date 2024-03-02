@@ -28,7 +28,7 @@
                         Name:
                     </th>
                     <td>
-                    {{$reservation->user->name}}
+                    {{ $reservation->user->first_name . ' ' . $reservation->user->last_name }}
                     </td>
                     <th>
                         Contact No. :

@@ -97,5 +97,9 @@ class Reservation extends Model
         return $this->hasMany(CallStatus::class);
     }
 
+    public function themeSelection()
+{
+    return $this->belongsTo(ThemeSelection::class, 'event_theme');
+}
 
 }

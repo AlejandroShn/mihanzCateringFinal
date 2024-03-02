@@ -24,7 +24,8 @@
             <thead>
               <tr>
                 <th scope="col">User ID</th>
-                <th scope="col">Name</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last_name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Type of user</th>
@@ -36,7 +37,8 @@
               <tr>
               
                 <th scope="row">{{$user->id}}</th>
-                <td>{{$user->name}}</td>
+                <td>{{$user->first_name}}</td>
+                <td>{{$user->last_name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->contact_number}}</td>
                 <td>{{ $user->role->name }}</td>

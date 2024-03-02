@@ -36,52 +36,52 @@ class MenuController extends Controller
 
 
     public function mostOrderedMenuPerCategory()
-    {
-    // List of menu categories
-    $menuCategories = [
-        'pork_menu_id',
-        'beef_menu_id',
-        'pasta_menu_id',
-        'chicken_menu_id',
-        'veggies_menu_id',
-        'fish_menu_id',
-        'seafood_menu_id',
-        'dessert_menu_id',
-        'drink_menu_id',
-    ];
+{
+    $menuCategories = ['pork', 'beef', 'pasta', 'chicken', 'veggies', 'fish', 'seafood', 'dessert', 'drink'];
 
-    $result = [];
+    $result = collect();
 
-    foreach ($menuCategories as $menuCategory) {
-        $mostOrderedMenus = Reservation::groupBy($menuCategory)
-            ->select($menuCategory, DB::raw('count(*) as count'))
-            ->orderByDesc('count')
+    foreach ($menuCategories as $category) {
+        $categoryResults = DB::table('menus')
+            ->join("reservations", "menus.id", "=", "reservations.{$category}_menu_id")
+            ->join('menu_selections', 'menus.menu_selection_id', '=', 'menu_selections.id')
+            ->select(
+                'menus.id as menu_id',
+                'menus.name as menu_name',
+                'menus.description',
+                'menus.price',
+                'menus.serving',
+                'menus.menu_selection_id',
+                'menus.menus_image', 
+                'menu_selections.menu_category as category_name',
+                'menus.created_at',
+                DB::raw('COUNT(menus.id) as total_orders'),
+                DB::raw('MAX(reservations.created_at) as last_order_date'),
+                DB::raw('RANK() OVER (ORDER BY COUNT(menus.id)) as ranking') // Use RANK() for ranking
+            )
+            ->groupBy('menus.id', 'menus.name', 'menus.description', 'menus.price', 'menus.serving','menus.menu_selection_id', 'menus.menus_image', 'menu_selections.menu_category', 'menus.created_at')
+            ->orderByDesc('total_orders')
             ->get();
 
-        $maxCount = $mostOrderedMenus->max('count');
+        if ($categoryResults->isNotEmpty()) {
+            $maxRank = $categoryResults->max('ranking');
 
-        $menus = $mostOrderedMenus->filter(function ($menu) use ($maxCount) {
-            return $menu->count == $maxCount;
-        });
+            $maxResults = $categoryResults->filter(function ($menuItem) use ($maxRank) {
+                return $menuItem->ranking === $maxRank;
+            });
 
-        foreach ($menus as $mostOrderedMenu) {
-            $menuId = $mostOrderedMenu->{$menuCategory};
-            $menu = Menu::find($menuId);
-            $result[] = [
-                'category_name' => ucfirst(str_replace('_menu_id', '', $menuCategory)),
-                'menu_id' => $menuId,
-                'menu_name' => $menu ? $menu->name : null,
-                'price' => $menu ? $menu->price : null,
-                    'serving' => $menu ? $menu->serving : null,
-                    'description' => $menu ? $menu->description : null,
-                    'count' => $mostOrderedMenu->count,
-                    'menus_image' =>  $menu ? $menu->menus_image : null,
-            ];
+            $maxResults = $maxResults->map(function ($menuItem) {
+                $menuItem->last_order_date = date('Y-m-d H:i:s', strtotime($menuItem->last_order_date));
+                $menuItem->formatted_price = '₱' . number_format($menuItem->price, 2);
+                return $menuItem;
+            });
+
+            $result = $result->merge($maxResults);
         }
     }
 
-    return view('mostOrderedMenu', compact('result'));
-    }
+    return view('mostOrderedMenu', ['result' => $result]);
+}
     
 
 

@@ -134,6 +134,23 @@ align-items: center;
     box-shadow: 10px 10px 10px black;
     
 } */
+.mostOrderedMenu{
+    height: 25vh;
+    /* border: solid; */
+    width: 90%;
+    margin: 4.5vh;
+    border-radius: 10px;  
+    background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.658)),url("../images/mostOrderedMenu.jpg") no-repeat;  
+    background-position: center;
+    background-size: cover;
+    
+}
+.mostOrderedMenu a{
+   color: whitesmoke;  
+}
+.mostOrderedMenu :hover{
+    font-size: 80px;
+}
 
 
 .menu-selection li{

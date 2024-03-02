@@ -5,7 +5,7 @@
 
     <main>
         @foreach ($serviceSelections as $serviceSelection)
-            <section class="p-5">
+            <section class="p-5" style="margin-bottom:100px">
                 <h1 class="display-1 text-center" style="font-family: 'Playfair Display', serif;">{{ $serviceSelection->services_category }}</h1>
                 <div id="carousel{{ ucfirst($serviceSelection->services_category) }}" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">

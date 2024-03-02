@@ -33,7 +33,7 @@
         </div>
         <div class="d-flex justify-content-center"><a href="../Index.html" class="btn btn-lg btn-primary m-5">Continue</a></div> -->
         <div class="w-50 mb-5">
-          Dear <b class="fw-semibold">{{ $user->name }}</b>
+          Dear <b class="fw-semibold">{{ $user->first_name }}</b>
         </div>
         <div class="w-50 mb-5" style="text-align: justify;">
           Welcome to <b>Mihanz Catering!</b> We are delighted to have you join our platform and become a part of our community. <br>

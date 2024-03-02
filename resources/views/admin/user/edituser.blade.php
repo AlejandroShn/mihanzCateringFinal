@@ -16,8 +16,12 @@
       
             
                   <tr>
-                    <th scope="col">Name</th>
-                    <td> <input type="text" name="name" value="{{ $user->name }}" class="form-control"></td>
+                    <th scope="col">First Name</th>
+                    <td> <input type="text" name="first_name" value="{{ $user->first_name }}" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th scope="col">Last Name</th>
+                    <td> <input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control"></td>
                   </tr>
                   <tr>
                     <th scope="col">Email</th>
